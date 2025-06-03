@@ -1,0 +1,150 @@
+<div class="add-book-container">
+  <!-- Search Bar (only visible in this component) -->
+  <div class="admin-search-bar">
+    <app-search-bar (search)="handleSearch($event)" (searchCleared)="clearSearch()">
+    </app-search-bar>
+  </div>
+
+  <!-- Search Results Section -->
+  <div *ngIf="searchResults.length !== 0" class="search-results-section">
+    <h3>Search Results - Found {{ searchResults.length }} book(s)</h3>
+
+    <div *ngIf="searchResults.length > 0 && onSearch === true">
+      <div class="book-results-grid">
+        <div *ngFor="let book of searchResults" class="book-result-card">
+          <h4>{{ book.title }}</h4>
+          <p><strong>Author:</strong> {{ book.author }}</p>
+          <p><strong>Genre:</strong> {{ book.genre }}</p>
+          <p><strong>Available:</strong> {{ book.availableCopies }}</p>
+
+        </div>
+      </div>
+
+      <button class="return-to-add" (click)="clearSearch()">
+        Back to Managing Books
+      </button>
+    </div>
+  </div>
+  <div *ngIf="searchResults.length === 0 && onSearch">
+    <div class="no-results">
+      No books found matching your search
+    </div>
+    <button class="return-to-add" (click)="clearSearch()">
+      Back to Managing Books
+    </button>
+  </div>
+
+  <!-- Add Book Form (hidden when showing search results) -->
+  <div *ngIf="!searchResults" class="add-book-form">
+    <h2>Add New Book</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <!-- Your existing form fields -->
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" formControlName="title" required>
+      </div>
+      <div class="form-group">
+        <label>Author:</label>
+        <input type="text" formControlName="author" required>
+      </div>
+      <div class="form-group">
+        <label>Genre:</label>
+        <input type="text" formControlName="genre" required>
+      </div>
+      <div class="form-group">
+        <label>ISBN:</label>
+        <input type="text" formControlName="isbn" required>
+      </div>
+      <div class="form-group">
+        <label>Year Published:</label>
+        <input type="number" formControlName="yearPublished" required>
+      </div>
+      <div class="form-group">
+        <label>Available Copies:</label>
+        <input type="number" formControlName="availableCopies" required>
+      </div>
+
+      <!-- Include all other form fields -->
+      <div class="form-actions">
+        <button type="submit">Add Book</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="book-list" *ngIf="!onSearch">
+  <div class="book-item" *ngFor="let book of books">
+    <img src="/assets/images/bin.png" alt="Add Book"
+      style="width: 30px; height: 30px; margin-left: 250px; cursor: pointer;" (click)="confirmDelete(book)">
+    <img src="/assets/images/librarybook.png" alt="{{ book.title }} cover" class="book-image">
+    <h4>{{ book.title }}</h4>
+    <p>Author: {{ book.author }}</p>
+    <p>Genre: {{ book.genre }}</p>
+    <p>Available Copies: {{ book.availableCopies }}</p>
+
+
+    <!-- Add this edit button (visible only for admin) -->
+    <button class="edit-button" (click)="editBook(book)">
+      Edit Book
+    </button>
+    <button class="view-book-button" (click)="viewBookDetails(book.bookId)">
+      View Book Details
+    </button>
+
+  </div>
+</div>
+
+<div class="add-book-form" *ngIf="!onSearch">
+  <img src="/assets/images/plus.png" class="addbook" alt="Add Book" (click)="showAddBookPopup()">
+  <div class="outlet">
+    <div *ngIf="showPopup" class="popup">
+      <form (ngSubmit)="onSubmit()">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" [(ngModel)]="book.title" name="title" placeholder="Enter book name" required>
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" [(ngModel)]="book.author" name="author" placeholder="Enter Author Name"
+            required>
+        </div>
+        <div>
+          <label for="genre">Genre:</label>
+          <input type="text" id="genre" [(ngModel)]="book.genre" placeholder="Enter genre type" name="genre" required>
+        </div>
+        <div>
+          <label for="isbn">ISBN:</label>
+          <input type="text" id="isbn" [(ngModel)]="book.isbn" placeholder="Enter ISBN number of book" name="isbn"
+            required>
+        </div>
+        <div>
+          <label for="yearPublished">Year Published:</label>
+          <input type="number" id="yearPublished" [(ngModel)]="book.yearPublished"
+            placeholder="Enter the year of Published" name="yearPublished" required>
+        </div>
+        <div>
+          <label for="availableCopies">Available Copies:</label>
+          <input type="number" id="availableCopies" [(ngModel)]="book.availableCopies"
+            placeholder="Enter number of available copies" name="availableCopies" required>
+        </div>
+        <button type="submit">Add Book</button>
+        <button type="button" (click)="closePopup()">Cancel</button>
+      </form>
+      <div *ngIf="responseMessage" class="response-message">
+        {{ responseMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div class="success-icon">&#10004;</div>
+    <p>{{ responseMessage }}</p>
+  </div>
+</div>

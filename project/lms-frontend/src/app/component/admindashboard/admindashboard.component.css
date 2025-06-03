@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+ 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+ 
+.logo {
+    flex: 1;
+}
+ 
+.logo img {
+    height: 50px;
+}
+.navbarlogo{
+    height: 50px;
+    width: 30px;
+}
+ 
+.site-name {
+    flex: 2;
+    text-align: center;
+}
+ 
+.site-name h1 {
+    margin: 0;
+    font-size: 24px;
+}
+ 
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+ 
+.notification button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+ 
+.notification img {
+    height: 24px;
+}
+ 
+.user-info {
+    display: flex;
+    align-items: center;
+    
+}
+ 
+.user-info p {
+    margin: 0px 0px 0px;
+}
+ 
+#logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+ 
+.sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    position: fixed;
+    top: 60px; /* Adjusted to be below the fixed header */
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+}
+ 
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.sidebar ul li {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li:hover {
+    cursor: pointer;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+.sidebar ul li:hover a {
+    color: #fff;
+}
+
+ 
+.sidebar ul li a img {
+    height: 24px;
+    margin-right: 10px;
+}
+ 
+main {
+    margin-left: 220px;
+    padding: 20px;
+    flex: 1;
+    margin-top: 60px; /* Adjusted to be below the fixed header */
+}
+ 
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+ 
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Changed from flex-end to flex-start */
+    align-items: center;
+}
+
+#logout-btn{
+    margin-left: 20px;
+}

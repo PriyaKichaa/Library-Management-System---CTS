@@ -1,0 +1,102 @@
+<div class="edit-book-form">
+  <div class="popup">
+    <h2>Edit Book</h2>
+    
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <!-- Book ID (disabled) -->
+      <div>
+        <label>Book ID:</label>
+        <input type="text" [value]="bookId" disabled>
+      </div>
+
+      <!-- Title -->
+      <div>
+        <label>Title:</label>
+        <input type="text" formControlName="title" required>
+        <div *ngIf="editForm.get('title')?.invalid && (editForm.get('title')?.dirty || editForm.get('title')?.touched)" 
+             class="invalid-feedback">
+          <div *ngIf="editForm.get('title')?.errors?.['required']">
+            Title is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Author -->
+      <div>
+        <label>Author:</label>
+        <input type="text" formControlName="author" required>
+        <div *ngIf="editForm.get('author')?.invalid && (editForm.get('author')?.dirty || editForm.get('author')?.touched)" 
+             class="invalid-feedback">
+          <div *ngIf="editForm.get('author')?.errors?.['required']">
+            Author is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Genre -->
+      <div>
+        <label>Genre:</label>
+        <input type="text" formControlName="genre" required>
+        <div *ngIf="editForm.get('genre')?.invalid && (editForm.get('genre')?.dirty || editForm.get('genre')?.touched)" 
+             class="invalid-feedback">
+          <div *ngIf="editForm.get('genre')?.errors?.['required']">
+            Genre is required
+          </div>
+        </div>
+      </div>
+
+      <!-- ISBN -->
+      <div>
+        <label>ISBN:</label>
+        <input type="text" formControlName="isbn" required>
+        <div *ngIf="editForm.get('isbn')?.invalid && (editForm.get('isbn')?.dirty || editForm.get('isbn')?.touched)" 
+             class="invalid-feedback">
+          <div *ngIf="editForm.get('isbn')?.errors?.['required']">
+            ISBN is required
+          </div>
+          <div *ngIf="editForm.get('isbn')?.errors?.['pattern']">
+            Must be 10 or 13 digits (numbers only)
+          </div>
+        </div>
+      </div>
+
+      <!-- Year Published -->
+      <div>
+        <label>Year Published:</label>
+        <input type="number" formControlName="yearPublished" required>
+        <div *ngIf="editForm.get('yearPublished')?.invalid && (editForm.get('yearPublished')?.dirty || editForm.get('yearPublished')?.touched)" 
+             class="invalid-feedback">
+          <div *ngIf="editForm.get('yearPublished')?.errors?.['required']">
+            Year is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Available Copies -->
+      <div>
+        <label>Available Copies:</label>
+        <input type="number" formControlName="availableCopies" required min="0">
+        <div *ngIf="editForm.get('availableCopies')?.invalid && (editForm.get('availableCopies')?.dirty || editForm.get('availableCopies')?.touched)" 
+             class="invalid-feedback">
+          <div *ngIf="editForm.get('availableCopies')?.errors?.['required']">
+            Available copies is required
+          </div>
+          <div *ngIf="editForm.get('availableCopies')?.errors?.['min']">
+            Must be 0 or greater
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="button" (click)="onCancel()">Cancel</button>
+        <button type="submit" [disabled]="!editForm.valid">Save Changes</button>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.book-list {
+    margin-top: 20px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Create columns that adjust based on content and screen size, minimum width of 300px */
+    gap: 20px; /* Add some spacing between grid items */
+  }
+  
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background for items */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: center; /* Center text within the book item */
+    position: relative; /* To position the delete icon */
+  }
+  
+  button {
+    background-color: white;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effects */
+  }
+  
+  button:hover {
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  button.return-book {
+    background-color: green; /* Green color for return book button */
+    color: white;
+  }
+  
+  button.return-book:hover {
+    background-color: darkgreen; /* Darker green on hover */
+  }
+  
+  button.returned-book {
+    background-color: gray; /* Brown color for returned book button */
+    color: white;
+  }
+  
+  button.returned-book:hover {
+    background-color: darkbrown; /* Darker brown on hover */
+  }
+  

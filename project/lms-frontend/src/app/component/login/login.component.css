@@ -1,0 +1,104 @@
+.body-container {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('/kiranProject/Library-HD-Background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.login-form:hover {
+    transform: scale(1.02);
+}
+
+.input-field {
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(102, 166, 255, 0.2);
+}
+
+.input-field:focus {
+    border-color: #66a6ff;
+    box-shadow: 0 0 10px rgba(102, 166, 255, 0.4);
+}
+
+.login-button {
+    padding: 14px;
+    background-color: #66a6ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(102, 166, 255, 0.4);
+}
+
+.signuplink {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.signuplink:hover {
+    text-decoration: underline;
+}
+
+.signup {
+    padding: 14px;
+    background-color: #66a6ff;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(102, 166, 255, 0.4);
+}
+
+.login-button:hover {
+    background-color: #558de8;
+    transform: translateY(-2px);
+}
+
+.signup-button:hover {
+    background-color: #558de8;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+body {
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

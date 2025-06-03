@@ -1,0 +1,64 @@
+<div class="admin-search-bar">
+  <app-search-bar 
+  (search)="handleSearch($event)" 
+  (searchCleared)="clearSearch()">
+  </app-search-bar>
+</div>
+
+
+
+<div *ngIf="searchResults.length !== 0" class="search-results-section">
+  <h3>Search Results - Found {{ searchResults.length }} book(s)</h3>
+
+  <div *ngIf="searchResults.length > 0 && onSearch === true" class="book-results-grid">
+   
+    <div *ngFor="let book of searchResults" class="book-result-card">
+      <h4>{{ book.title }}</h4>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Genre:</strong> {{ book.genre }}</p>
+      <p><strong>Available:</strong> {{ book.availableCopies }}</p>
+
+    </div>
+  </div>
+
+
+<button class="return-to-add" (click)="clearSearch()">
+  Back to Book List
+</button>
+</div>
+<div *ngIf="searchResults.length === 0 && onSearch">
+<div  class="no-results">
+  No books found matching your search
+</div>
+<button class="return-to-add" (click)="clearSearch()">
+  Back to Book List
+</button>
+</div>
+
+  <div class="book-list" *ngIf="!onSearch">
+    <div class="book-item" *ngFor="let book of books">
+      <img
+      src="/assets/images/librarybook.png"
+      alt="{{ book.title }} cover"
+      class="book-image">
+    
+      <h4>{{ book.title }}</h4>
+      <p>Author: {{ book.author }}</p>
+      <p>Published: {{ book.yearPublished }}</p>
+      <p>Available Copies: {{ book.availableCopies }}</p>
+
+      <div class="book-actions">
+        <button class="borrow-button" (click)="confirmBorrow(book)" [disabled]="book.availableCopies === 0"  [ngClass]="{'borrow-button-disabled': book.availableCopies === 0}">
+          {{ book.availableCopies === 0 ? 'Out of Stock' : 'Borrow Book' }}
+        </button> 
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="borrowMessage" class="borrow-message">
+    {{ borrowMessage }}
+  </div>

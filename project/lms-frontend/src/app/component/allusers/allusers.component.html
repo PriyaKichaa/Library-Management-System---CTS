@@ -1,0 +1,24 @@
+<main class="main-content">
+    <div class="details">
+      <h2>All Users</h2>
+      <ul>
+        <li *ngFor="let user of usersData" class="user-item">
+        <div class="userdetails">
+          <div class="user-details">
+            <p><strong>Member id:</strong> {{ user.memberId }}</p>
+            <p><strong>Name:</strong> {{ user.name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Phone:</strong> {{ user.phone }}</p>
+            <p><strong>Address:</strong> {{ user.address }}</p>
+          </div>
+          <div>
+            <p>Books Count :{{user.bookcount}}</p>
+            <!-- <button onclick="findDetails()" style="background-color: green; color: aliceblue;">view Books</button> -->
+          </div>
+          <button (click)="confirmDelete(user)" class="delete-button">
+            <img src="/assets/images/bin.png" alt="History Icon" style="width: 40px; height: 30px;">
+          </button>
+        </div>
+        </li>
+      </ul>
+    </div>

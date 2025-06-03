@@ -1,0 +1,111 @@
+/* General styles for the body container */
+.body-container {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('/kiranProject/Library-HD-Background.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+ 
+}
+
+/* Styles for the signup container */
+.signup-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Styles for the form elements */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signup-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+}
+.parts{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.parts .divideline{
+      height: 300px;
+      background-color: #333;
+      width: 1px;
+}
+.form-section {
+  width: 48%;
+}
+
+.form-section div {
+  margin-bottom: 15px;
+}
+
+.signup-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hover effect for input fields */
+.input-field:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for the buttons */
+.signup-button {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #66a6ff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  margin-top: 20px;
+}
+
+.signup-button:hover {
+  background-color: #558de8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for the error message */
+.error-message {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f8d7da;
+  color: #721c24;
+  font-family: 'Arial', sans-serif;
+}
+

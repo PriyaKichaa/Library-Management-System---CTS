@@ -1,0 +1,32 @@
+<div class="search-container">
+  <div class="search-bar">
+    <div class="search-icon">
+      <img src="/assets/images/search.png" alt="Search" (click)="onSearch()">
+    </div>
+    
+    <input type="text" 
+           [(ngModel)]="searchQuery" 
+           placeholder="Search books..." 
+           (keyup.enter)="onSearch()"
+           (input)="searchQuery ? null : searchCleared.emit()">
+    
+    <select [(ngModel)]="searchOption">
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+      <option value="genre">Genre</option>
+    </select>
+    
+    <button class="search-button" 
+            (click)="onSearch()"
+            [disabled]="!searchQuery.trim() || isLoading">
+      <span *ngIf="!isLoading">Search</span>
+      <span *ngIf="isLoading">Searching...</span>
+    </button>
+    
+    <button *ngIf="searchQuery" 
+            class="clear-button"
+            (click)="clearSearch()">
+      &times;
+    </button>
+  </div>
+</div>

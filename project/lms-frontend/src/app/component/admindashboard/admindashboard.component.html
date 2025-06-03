@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/assets/images/history.png" alt="Library Logo">
+    </div>
+    <div class="site-name">
+      <h1>Admin DashBoard</h1>
+    </div>
+    <div class="header-right">
+      <div class="notification">
+        <button id="notification-btn">
+          <img src="/assets/images/notification.png" alt="Notifications">
+        </button>
+      </div>
+      <div class="user-info">
+        <p>Hi, <span id="user-name">{{userName}}</span></p>
+        <button id="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+  <div>
+    <nav class="sidebar">
+      <ul>
+        <li><a routerLink="/admindashboard/profile"><img src="/assets/images/man.png" alt="profile icon" class="navbarlogo">Profile</a></li>
+        <li><a  routerLink="/admindashboard/allusers"><img src="/assets/images/teamwork.png" alt="All users Icon" class="navbarlogo">ALL Users</a></li>
+        <li><a routerLink="/admindashboard/addbook"><img src="/assets/images/library.png" alt="add book Icon" class="navbarlogo" style="width: 30px; height: 20px;">Add Book</a></li>
+        <li><a></a></li>
+      </ul>
+    </nav>
+  </div>
+  <main>
+      <router-outlet></router-outlet>
+  </main>
+</body>
+</html>

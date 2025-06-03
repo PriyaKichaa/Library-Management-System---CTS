@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/assets/images/history.png" alt="Library Logo">
+    </div>
+    <div class="site-name">
+      <h1>User DashBoard</h1>
+    </div>
+    <div class="header-right">
+      <div class="notification">
+        <button id="notification-btn">
+          <img src="/assets/images/notification.png" alt="Notifications">
+        </button>
+      </div>
+      <div class="user-info">
+        <p>Hi, <span id="user-name">{{userName}}</span></p>
+        <button id="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+  <div>
+    <nav class="sidebar">
+      <ul>
+        <li routerLink="/userdashboard/profile"><a><img src="/assets/images/man.png" alt="profile icon" class="navbarlogo">Profile</a></li>
+        <li routerLink="/userdashboard/history"><a><img src="/assets/images/history (1).png" alt="History Icon" class="navbarlogo">History</a></li>
+        <li routerLink="/userdashboard/allbooks"><a ><img src="/assets/images/book.png" alt="History Icon" class="navbarlogo" style="width: 40px; height: 30px;">Borrow Books</a></li>
+        <li routerLink="/userdashboard/help"><a><img src="/assets/images/help-desk.png" alt="Help Icon" class="navbarlogo" style="width: 40px; height: 30px;">Help</a></li>
+        <li><a></a></li>
+      </ul>
+    </nav>
+  </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</body>
+</html>

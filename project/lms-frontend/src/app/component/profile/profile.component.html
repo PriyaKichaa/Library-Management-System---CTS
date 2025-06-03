@@ -1,0 +1,37 @@
+<div class="container">
+  <form (ngSubmit)="saveProfile()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="profile.name" name="name" required>
+    </div>
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="profile.username" name="username" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="profile.email" name="email" required>
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" [(ngModel)]="profile.phone" name="phone" required>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" [(ngModel)]="profile.address" name="address" required>
+    </div>
+    <button type="submit" (click)="onSubmit()" style="width: 50%; margin-left: 160px;">Save</button>
+    <div *ngIf="message" class="message">
+      <pre>{{ message }}</pre>
+    </div>
+  </form>
+</div>
+
+<!-- Success Modal -->
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div class="success-icon">&#10004;</div>
+    <p>{{ message }}</p>
+  </div>
+</div>

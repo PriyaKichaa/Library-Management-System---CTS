@@ -1,0 +1,17 @@
+<h2 *ngIf="totalfine!==0">Total Fine amount: {{ totalfine }}</h2>
+<h1 *ngIf="historyExist">No books borrowed till now</h1>
+<div class="book-list">    
+  <div *ngFor="let transaction of transactions" class="book-item">
+    <div class="details">
+      <p><strong>Transaction ID:</strong> {{ transaction.transactionId }}</p>
+      <p><strong>Book Name:</strong> {{ transaction.bookName }}</p>
+      <p><strong>Borrow Date:</strong> {{ transaction.borrowDate }}</p>
+      <p><strong>Expected Return date:</strong> {{ transaction.expectedDate }}</p>
+      <p><strong>Fine amount:</strong> {{ transaction.amount }}</p>
+      <p><strong>Return Date:</strong> {{ transaction.returnDate }}</p>
+      <p><strong>Status:</strong> {{ transaction.status }}</p>
+      <button *ngIf="transaction.status === 'Borrowed'" class="return-book" (click)="confirmReturn(transaction)">Return Book</button>
+      <button *ngIf="transaction.status === 'Returned'" class="returned-book">Book returned successfully!</button>
+    </div>
+  </div>
+</div>

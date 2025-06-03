@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #cce0e6; /* Adds baby pink background color */
+  }
+  
+  .navbar {
+    width: 100%;
+    background: #f5f3f3;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0;
+    left: 0;
+  }
+  
+  .navbar button {
+    padding: 10px;
+    background-color: #057bf9;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .navbar button:hover {
+    background-color: #757e88;
+  }
+  
+  .navbar button.active-button {
+    background-color: #f4f4f4; 
+  }
+  
+  .main-content {
+    margin-top: 60px; /* Adjusts the main content to account for the fixed navbar */
+    padding: 10px;
+    margin-left: 120px;
+    width: 80%;
+    color: #053ef9;
+    background-color: white; /* Ensures the main content takes up the remaining width */
+  }
+  
+  .main-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .main-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .main-content li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #1c1b1b;
+    border-radius: 5px;
+  }
+  
+  .user-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-item:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+    border-color: #0f1215; /* Change border color on hover */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .user-info p {
+    margin-right: 5px;
+    color: #1c1b1b;
+  }
+  
+  .user-details p {
+    margin: 2px 0;
+    color: #05c4f9;
+  }
+  
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+    margin-left: 500px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Remove bottom margin */
+  }
+  
+  .user-details p {
+    margin: 5px 0;
+  }
+  
